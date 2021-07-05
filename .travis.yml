@@ -22,7 +22,7 @@ after_success:
   - docker push yairelmaliah/multi-server
   - docker push yairelmaliah/multi-worker
 deploy:
-  deploy.skip_cleanup: true
+  skip_cleanup: true
   provider: elasticbeanstalk
   region: eu-central-1
   app: multi-docker
