@@ -21,3 +21,15 @@ after_success:
   - docker push yairelmaliah/multi-nginx
   - docker push yairelmaliah/multi-server
   - docker push yairelmaliah/multi-worker
+deploy:
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: multi-docker
+  env: Multidocker-env-1
+  bucket_name: elasticbeanstalk-eu-central-1-952277248628
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
